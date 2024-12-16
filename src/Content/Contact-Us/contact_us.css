@@ -1,0 +1,76 @@
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 20px;
+    background-color: #023E8A;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(4, 218, 250);
+    animation: glow-border 1.5s infinite alternate;
+    width: 1268px;
+    height: 504px;
+    margin: auto;
+
+    place-items: center;
+}
+
+.contact-title {
+    grid-column: 1 / -1; /* Spans the entire width of the grid */
+    text-align: center;
+}
+  
+.contact-title h1 {
+    font-size: 40px;
+}
+
+@keyframes glow-border {
+    from {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+    }
+}
+  
+.contact-linkoption {
+    background-color: #0077B6;
+    border: 2px solid #444;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 220px;
+    height: 224px;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 100px;
+    text-decoration: none;
+}
+
+.contact-linkoption:hover {
+    border-color: #04DAFA;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+  
+.contact-logo {
+    margin-top: 30px;
+    font-size: 65px;
+}
+
+.contact-logo-wh {
+    margin-top: 35px;
+    font-size: 65px;
+}
+.contact-logo-ph{
+    margin-top: 40px;
+    font-size: 48px;
+}
+  
+.contact-infologo {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 60px;
+}

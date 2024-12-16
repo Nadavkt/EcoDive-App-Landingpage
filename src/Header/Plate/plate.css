@@ -1,0 +1,56 @@
+.plateWrapper {
+    display: grid;
+    margin-top: 25px;
+}
+  
+.backgroundImage {
+    height: 472px;
+    background-image: url('../../Assets/final\ project\ img\ -\ 1.webp');
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Place items at the bottom of the container */
+    align-items: end;
+    padding: 2rem;
+}
+  
+.backgroundImage img {
+    width: 1440px;
+    height: 472px;
+    display: block;
+}
+
+.text-plate {
+    justify-self: start; /* Aligns to the left column */
+    text-align: left;
+    max-width: 300px;
+}
+  
+.text-plate p {
+    font-size: 40px;
+    color: #fff;
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    bottom: 130px;
+    left: 70px;
+}
+
+
+.button-plate {
+    position: relative;
+    bottom: 120px;
+    right: 150px;
+    justify-self: end; /* Aligns to the right column */
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-size: 20px;
+    background: #04DAFA;
+    padding: 10px 20px 10px 20px;
+}
+
+.button-plate a{
+    text-decoration: none;
+}

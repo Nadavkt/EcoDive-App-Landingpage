@@ -1,0 +1,86 @@
+
+/* AppSection.css */
+.download-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns: content on the left, image on the right */
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    margin-top: 150px;
+}
+  
+.download-wrapper-device {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.download-wrapper-device img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+  
+.download-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+}
+  
+.download-content-info p {
+    font-size: 24px;
+    line-height: 1.8;
+    text-align: center;
+    margin: 0;
+}
+  
+.download-content-title h1 {
+    font-size: 40px;
+    margin-bottom: 80px;
+}
+  
+.download-content-links {
+    display: flex;
+    gap: 100px;
+}
+  
+.download-content-title h1 {
+    font-size: 40px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+  
+.download-content-links {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+}
+  
+.download-content-link-appstore,
+.download-content-link-googleplay {
+    width: auto;
+}
+  
+.download-content-link-appstore a,
+.download-content-link-googleplay a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #023E8A; 
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 40px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+  
+  
+.download-content-link-appstore a:hover,
+.download-content-link-googleplay a:hover {
+    opacity: 0.8;
+}
+
+  

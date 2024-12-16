@@ -1,0 +1,30 @@
+.about-wrapper{
+    margin: 200px 130px;
+}
+
+.about-title{
+    font-size: 70px;
+    
+}
+
+.about-explanation{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.about-dots{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.about-dots li{
+    margin-top: 40px;
+}
+
+.about-finishline{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.5;
+}

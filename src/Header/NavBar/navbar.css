@@ -1,0 +1,44 @@
+
+.navbar-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Navigation Options */
+.navbar-options ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centers the nav items horizontally */
+    gap: 5rem;              /* Space between nav items */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-options li a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Social Icons */
+.navbar-socials {
+    display: flex;
+    justify-content: flex-end; /* Aligns social icons to the right */
+    gap: 1rem;
+}
+  
+.navbar-socials a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
