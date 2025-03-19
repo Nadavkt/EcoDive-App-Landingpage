@@ -2,7 +2,7 @@ import './about.css';
 
 const About = () => {
     return ( 
-        <div className="about-wrapper">
+        <div className="about-wrapper" id='about'>
             <h1 className="about-title">
                 Dive into the Digital Age with Our Eco -<br/> Friendly Dive Log App
             </h1>

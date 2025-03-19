@@ -1,19 +1,32 @@
 import  './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-scroll';
 
+const navLinks = [
+    { id: 1, to: 'home'},
+    { id: 2, to: 'about', label: 'About' },
+    { id: 3, to: 'contact', label: 'Contact-Us' },
+    { id: 4, to: 'download', label: 'Download' },
+];
 
 const NavBar = () => {
     return ( 
         <header className="navbar-container">
             <div className="navbar-logo">
-                <a href="/">EcoDive</a>
+                <li>
+                    <Link to="home" smooth={true} offset={-80} duration={750}>EcoDive</Link>
+                </li> 
             </div>
             <nav className="navbar-options">
                 <ul>
-                    <li><a href="/About">About</a></li>
-                    <li><a href="/Contact">Contact-Us</a></li>
-                    <li><a href="/Download">Download</a></li>
+                    {navLinks.map(link => (
+                        <li key={link.id}>
+                            <Link to={link.to} smooth={true} offset={-80} duration={750}>
+                                {link.label}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </nav>
             <div className="navbar-socials">

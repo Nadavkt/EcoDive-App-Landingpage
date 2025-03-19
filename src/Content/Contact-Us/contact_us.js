@@ -20,7 +20,7 @@ const ContactUs = () => {
 
 
     return ( 
-        <div className="contact-wrapper">
+        <div className="contact-wrapper" id='contact'>
             <div className='contact-title'><h1>Contact Us</h1></div>
             <a className="contact-linkoption" href={googleMapUrl} target="_blank" rel="noopener noreferrer">
                 <div className="contact-logo">

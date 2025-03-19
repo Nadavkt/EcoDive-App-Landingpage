@@ -49,8 +49,14 @@
     font-size: 20px;
     background: #04DAFA;
     padding: 10px 20px 10px 20px;
+    list-style-type: none;
 }
 
 .button-plate a{
     text-decoration: none;
+    cursor: pointer;
+}
+
+.button-plate :hover{
+    background: #04DAFA;
 }

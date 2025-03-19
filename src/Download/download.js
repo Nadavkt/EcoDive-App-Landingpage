@@ -6,7 +6,7 @@ import { faApple, faGooglePlay } from '@fortawesome/free-brands-svg-icons';
 
 const Download = () => {
     return ( 
-        <div className="download-wrapper">
+        <div className="download-wrapper" id='download'>
 
             <div className="download-content">
                 <div className="download-content-info">
