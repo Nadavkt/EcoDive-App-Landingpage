@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# EcoDive---landing-Page
+# EcoDive-App-landingpage
 EcoDive the landing page for my final project in associate software engineer 
 
 # Getting Started with Create React App
