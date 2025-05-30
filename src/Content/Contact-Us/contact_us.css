@@ -1,76 +1,164 @@
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    padding: 20px;
-    background-color: #023E8A;
-    border: 2px solid transparent;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(4, 218, 250);
-    animation: glow-border 1.5s infinite alternate;
-    width: 1268px;
-    height: 504px;
-    margin: auto;
-
-    place-items: center;
+.contact-container {
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.contact-title {
-    grid-column: 1 / -1; /* Spans the entire width of the grid */
-    text-align: center;
-}
-  
-.contact-title h1 {
-    font-size: 40px;
-}
-
-@keyframes glow-border {
-    from {
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-    }
-    to {
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
-    }
-}
-  
-.contact-linkoption {
-    background-color: #0077B6;
-    border: 2px solid #444;
-    border-radius: 10px;
+.contact-content {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    width: 220px;
-    height: 224px;
-    cursor: pointer;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    margin-bottom: 100px;
-    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
 }
 
-.contact-linkoption:hover {
-    border-color: #04DAFA;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
-}
-  
-.contact-logo {
-    margin-top: 30px;
-    font-size: 65px;
-}
-
-.contact-logo-wh {
-    margin-top: 35px;
-    font-size: 65px;
-}
-.contact-logo-ph{
-    margin-top: 40px;
-    font-size: 48px;
-}
-  
-.contact-infologo {
-    color: #fff;
-    font-size: 14px;
+.contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: white;
     text-align: center;
-    margin-bottom: 60px;
+    width: 100%;
+}
+
+.contact-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 4rem;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 400px;
+    justify-items: center;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 160px;
+    height: 160px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item span {
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form button {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-form button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .contact-info, .contact-form {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 2rem;
+    }
+    
+    .contact-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact-item {
+        width: 150px;
+        height: 150px;
+    }
 }
