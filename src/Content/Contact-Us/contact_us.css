@@ -1,164 +1,163 @@
-.contact-container {
-    padding: 4rem 2rem;
-    position: relative;
-    overflow: hidden;
-}
+/* Base section (blue background like the mockup) */
+.cu-section {
 
-.contact-content {
+    --muted: rgba(15, 34, 51, 0.72);
+    --line: rgba(255, 255, 255, 0.5);
+  
+    background: var(--blue);
+    padding: 56px 24px 64px;
+    color: #fff;
+  }
+  
+  /* Top cards row */
+  .cu-cards {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  
+  .cu-card {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 10px;
+    text-decoration: none;
+    padding: 28px 22px;
+    background: var(--card-bg);
+    border-radius: 6px;
+    color: var(--ink);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .cu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+  }
+  
+  .cu-card-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+  .cu-card-title {
+    font-weight: 800;
+    letter-spacing: .3px;
+  }
+  .cu-card-lines {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  
+  /* Bottom split */
+  .cu-bottom {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    padding: 3rem;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-}
-
-.contact-title {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: white;
-    text-align: center;
-    width: 100%;
-}
-
-.contact-content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    gap: 4rem;
-}
-
-.contact-info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    width: 100%;
-    max-width: 400px;
-    justify-items: center;
-}
-
-.contact-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    width: 160px;
-    height: 160px;
-    background: rgba(255, 255, 255, 0.1);
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  
+  /* Left side */
+  .cu-heading {
+    font-size: 40px;
+    font-weight: 800;
+    margin: 6px 0 18px;
+  }
+  
+  .cu-paragraph {
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+  
+  .cu-image-wrap {
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s ease;
-    text-align: center;
-    padding: 1.5rem;
-}
-
-.contact-item:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px);
-}
-
-.contact-icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.contact-item span {
-    font-size: 0.9rem;
-    line-height: 1.2;
-}
-
-.contact-form {
+    overflow: hidden;
+    margin-top: 14px;
+    border: 6px solid rgba(255,255,255,0.35);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15) inset;
+  }
+  .cu-image-wrap img {
     width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    color: white;
-    font-size: 1rem;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cu-credit {
+    display: block;
+    margin-top: 10px;
+    opacity: .9;
+    font-size: 12px;
+  }
+  .cu-credit a { color: #fff; text-decoration: underline; }
+  
+  /* Right side form – underlined inputs like the mockup */
+  .cu-form {
     width: 100%;
-}
-
-.contact-form textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.contact-form button {
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .cu-label {
+    font-weight: 700;
+    letter-spacing: .2px;
+  }
+  
+  .cu-input,
+  .cu-textarea {
+    background: transparent;
     border: none;
-    border-radius: 15px;
-    color: white;
-    font-weight: bold;
+    border-bottom: 2px solid var(--line);
+    padding: 10px 2px 12px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+  }
+  .cu-input::placeholder,
+  .cu-textarea::placeholder { color: rgba(255,255,255,.85); }
+  
+  .cu-textarea {
+    min-height: 120px;
+    resize: vertical;
+    margin-bottom: 10px;
+    border-width: 2px;
+  }
+  
+  .cu-submit {
+    margin-top: 6px;
+    height: 44px;
+    border: none;
+    background: #eef5f9;
+    color: #1a2b3b;
+    font-weight: 700;
+    border-radius: 3px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.contact-form button:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .contact-content-wrapper {
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .cu-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.15); }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .cu-cards {
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
     }
-
-    .contact-info, .contact-form {
-        max-width: 600px;
+    .cu-bottom {
+      grid-template-columns: 1fr;
     }
-}
-
-@media (max-width: 768px) {
-    .contact-content {
-        padding: 2rem;
+  }
+  
+  @media (max-width: 600px) {
+    .cu-cards {
+      grid-template-columns: 1fr;
     }
-    
-    .contact-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .contact-info {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .contact-item {
-        width: 150px;
-        height: 150px;
-    }
+    .cu-heading { font-size: 32px; }
+    .cu-image-wrap { width: 220px; height: 220px; }
 }

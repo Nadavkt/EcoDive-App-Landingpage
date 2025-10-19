@@ -1,130 +1,106 @@
 import './contact_us.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faLocationDot, faPhone, faEnvelope, faFax } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
 const ContactUs = () => {
-    // Contact information
-    const contactInfo = {
-        location: {
-            text: "Emanuel Haromi St 19, Tel Aviv, Israel",
-            url: "https://www.google.com/maps?q=Emanuel+Haromi+St+19,+Tel+Aviv,+Israel",
-            icon: faLocationDot
-        },
-        phone: {
-            text: "234-9876-5400",
-            url: "tel:2349876540",
-            icon: faPhone
-        },
-        whatsapp: {
-            text: "888-0123-4567",
-            url: "https://wa.me/972524222403?text=Hello%20I%20would%20like%20to%20contact%20you",
-            icon: faWhatsapp
-        },
-        email: {
-            text: "hello@ecodive.com",
-            url: "mailto:hello@ecodive.com",
-            icon: faEnvelope
-        }
-    };
+  const cards = [
+    {
+      title: 'OUR MAIN OFFICE',
+      lines: ['Emanuel Haromi 19', 'Tel Aviv', 'Israel'],
+      href: 'https://www.google.com/maps/place/Emanuel+Haromi+St+19,+Tel+Aviv-Jaffa/@32.0876292,34.7812543,17z/data=!3m1!4b1!4m6!3m5!1s0x151d4b8c43e1d47b:0xe11eb6f346ed877b!8m2!3d32.0876292!4d34.7812543!16s%2Fg%2F11c88slg8g?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D',
+      icon: faLocationDot,
+    },
+    {
+      title: 'PHONE NUMBER',
+      lines: ['052-4222403'],
+      href: 'tel:0524222403',
+      icon: faPhone,
+    },
+    {
+      title: 'WHATSAPP',
+      lines: ['+972-52-4222403'],
+      href: '#',
+      icon: faFax,
+    },
+    {
+      title: 'EMAIL',
+      lines: ['ecodive09@gmail.com'],
+      href: 'ecodive09@gmail.com',
+      icon: faEnvelope,
+    },
+  ];
 
-    const containerVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                staggerChildren: 0.1
-            }
-        }
-    };
+  const container = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, staggerChildren: 0.08 } } };
+  const item = { hidden: { opacity: 0, scale: 0.97 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.35 } } };
 
-    const itemVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: { 
-                duration: 0.5,
-                type: "spring",
-                stiffness: 100
-            }
-        }
-    };
-
-    return (
-        <motion.div 
-            className="contact-container" 
-            id="contact"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-        >
-            <div className="contact-content">
-                <motion.h2 
-                    variants={itemVariants}
-                    className="contact-title"
-                >
-                    Contact Us
-                </motion.h2>
-                
-                <div className="contact-content-wrapper">
-                    <div className="contact-info">
-                        {Object.entries(contactInfo).map(([key, info], index) => (
-                            <motion.a
-                                key={key}
-                                href={info.url}
-                                className="contact-item"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                variants={itemVariants}
-                                whileHover={{ 
-                                    scale: 1.05,
-                                    boxShadow: "0 8px 16px rgba(0,0,0,0.2)"
-                                }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <div className="contact-icon">
-                                    <FontAwesomeIcon icon={info.icon} />
-                                </div>
-                                <span>{info.text}</span>
-                            </motion.a>
-                        ))}
-                    </div>
-
-                    <motion.form 
-                        className="contact-form"
-                        variants={itemVariants}
-                    >
-                        <motion.input 
-                            type="text" 
-                            placeholder="Enter your Name"
-                            variants={itemVariants}
-                        />
-                        <motion.input 
-                            type="email" 
-                            placeholder="Enter a valid email address"
-                            variants={itemVariants}
-                        />
-                        <motion.textarea 
-                            placeholder="Your Message"
-                            variants={itemVariants}
-                        />
-                        <motion.button 
-                            type="submit"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            SUBMIT
-                        </motion.button>
-                    </motion.form>
-                </div>
+  return (
+    <motion.section
+      id="contact"
+      className="cu-section"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={container}
+    >
+      {/* Top cards */}
+      <div className="cu-cards">
+        {cards.map((c, i) => (
+          <motion.a
+            key={i}
+            href={c.href}
+            className="cu-card"
+            variants={item}
+            target={c.href.startsWith('#') ? '_self' : '_blank'}
+            rel="noreferrer"
+          >
+            <div className="cu-card-icon">
+              <FontAwesomeIcon icon={c.icon} />
             </div>
-        </motion.div>
-    );
-}
+            <div className="cu-card-title">{c.title}</div>
+            <div className="cu-card-lines">
+              {c.lines.map((l, idx) => (
+                <div key={idx}>{l}</div>
+              ))}
+            </div>
+          </motion.a>
+        ))}
+      </div>
+
+      {/* Bottom split */}
+      <div className="cu-bottom">
+        {/* Left: text + image */}
+        <div className="cu-left">
+          <h2 className="cu-heading">Contact info</h2>
+          <p className="cu-paragraph">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est laborum.
+          </p>
+
+          <div className="cu-image-wrap">
+            {/* Replace the src with your image path. The circle crop is handled in CSS */}
+            <img src="'../../assets/image-logo-ecodive.png'" alt="EcoDive" />
+          </div>
+        </div>
+
+        {/* Right: form */}
+        <motion.form className="cu-form" variants={item} onSubmit={(e) => e.preventDefault()}>
+          <label className="cu-label" htmlFor="email">Email</label>
+          <input id="email" type="email" placeholder="Enter a valid email address" className="cu-input" />
+
+          <label className="cu-label" htmlFor="name">Name</label>
+          <input id="name" type="text" placeholder="Enter your Name" className="cu-input" />
+
+          <label className="cu-label" htmlFor="message">Message</label>
+          <textarea id="message" placeholder="Enter your message" className="cu-textarea" />
+
+          <button type="submit" className="cu-submit">SUBMIT</button>
+        </motion.form>
+      </div>
+    </motion.section>
+  );
+};
 
 export default ContactUs;
