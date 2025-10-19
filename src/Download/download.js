@@ -24,7 +24,9 @@ const Download = () => {
                 <div className="download-content-links">
 
                     <div className='download-content-link-appstore'>
-                        <a href="/">For Iphone <FontAwesomeIcon icon={faApple} size="2x" style={{marginLeft: '15px', marginBottom: '5px'}} /></a>
+                        <a href="https://apps.apple.com/il/app/ecodive/id6753789848EcoDive">
+                        For Iphone 
+                        <FontAwesomeIcon icon={faApple} size="2x" style={{marginLeft: '15px', marginBottom: '5px'}} /></a>
                         
                     </div>
                     <div className='download-content-link-googleplay'>
