@@ -1,9 +1,67 @@
 import './contact_us.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot, faPhone, faEnvelope, faFax } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { motion } from 'framer-motion';
+import ecodiveLogo from '../../Assets/image-logo-ecodive.png';
+import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    try {
+      // EmailJS configuration from environment variables
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+      // Check if environment variables are loaded
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration missing. Please check your .env file.');
+      }
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'ecodive09@gmail.com'
+      };
+
+      console.log('Sending email with params:', { serviceId, templateId, publicKey, templateParams });
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      console.error('Error details:', error.text || error.message);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const cards = [
     {
       title: 'OUR MAIN OFFICE',
@@ -20,13 +78,13 @@ const ContactUs = () => {
     {
       title: 'WHATSAPP',
       lines: ['+972-52-4222403'],
-      href: '#',
-      icon: faFax,
+      href: 'https://wa.me/972524222403?text=Hello%20I%20would%20like%20to%20contact%20EcoDive',
+      icon: faWhatsapp,
     },
     {
       title: 'EMAIL',
       lines: ['ecodive09@gmail.com'],
-      href: 'ecodive09@gmail.com',
+      href: 'mailto:ecodive09@gmail.com?subject=Contact%20from%20EcoDive%20Website&body=Hello%20EcoDive%20Team,',
       icon: faEnvelope,
     },
   ];
@@ -73,30 +131,67 @@ const ContactUs = () => {
         <div className="cu-left">
           <h2 className="cu-heading">Contact info</h2>
           <p className="cu-paragraph">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est laborum.
+          At EcoDive, we believe every dive deserves to be remembered. Our app lets you log your dives, explore new sites, and connect with dive clubs around the world.
+          Have a question or want to collaborate? Drop us a message — we’d love to hear from you!
           </p>
 
           <div className="cu-image-wrap">
-            {/* Replace the src with your image path. The circle crop is handled in CSS */}
-            <img src="'../../assets/image-logo-ecodive.png'" alt="EcoDive" />
+            <img src={ecodiveLogo} alt="EcoDive" />
           </div>
         </div>
 
         {/* Right: form */}
-        <motion.form className="cu-form" variants={item} onSubmit={(e) => e.preventDefault()}>
+        <motion.form className="cu-form" variants={item} onSubmit={handleSubmit}>
           <label className="cu-label" htmlFor="email">Email</label>
-          <input id="email" type="email" placeholder="Enter a valid email address" className="cu-input" />
+          <input 
+            id="email" 
+            name="email"
+            type="email" 
+            placeholder="Enter a valid email address" 
+            className="cu-input"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
 
           <label className="cu-label" htmlFor="name">Name</label>
-          <input id="name" type="text" placeholder="Enter your Name" className="cu-input" />
+          <input 
+            id="name" 
+            name="name"
+            type="text" 
+            placeholder="Enter your Name" 
+            className="cu-input"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+          />
 
           <label className="cu-label" htmlFor="message">Message</label>
-          <textarea id="message" placeholder="Enter your message" className="cu-textarea" />
+          <textarea 
+            id="message" 
+            name="message"
+            placeholder="Enter your message" 
+            className="cu-textarea"
+            value={formData.message}
+            onChange={handleInputChange}
+            required
+          />
 
-          <button type="submit" className="cu-submit">SUBMIT</button>
+          <button type="submit" className="cu-submit" disabled={isSubmitting}>
+            {isSubmitting ? 'SENDING...' : 'SUBMIT'}
+          </button>
+          
+          {submitStatus === 'success' && (
+            <div style={{ color: '#4CAF50', marginTop: '10px', fontSize: '14px' }}>
+              Message sent successfully!
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div style={{ color: '#f44336', marginTop: '10px', fontSize: '14px' }}>
+              Error sending message. Please try again.
+            </div>
+          )}
         </motion.form>
       </div>
     </motion.section>

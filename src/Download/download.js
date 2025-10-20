@@ -1,5 +1,5 @@
 import './download.css';
-import iphoneImg from '../Assets/iphone-divelog-mockup.svg';
+import iphoneImg from '../Assets/ecodive-iphone-display.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faApple, faGooglePlay } from '@fortawesome/free-brands-svg-icons';
 
