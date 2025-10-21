@@ -97,7 +97,7 @@ const ContactUs = () => {
       transition: { 
         duration: 0.8, 
         ease: "easeOut",
-        delay: 0.6,
+        delay: 0.4,
         staggerChildren: 0.1 
       } 
     } 
@@ -110,7 +110,7 @@ const ContactUs = () => {
       transition: { 
         duration: 0.6, 
         ease: "easeOut",
-        delay: 0.6
+        delay: 0.4
       } 
     } 
   };

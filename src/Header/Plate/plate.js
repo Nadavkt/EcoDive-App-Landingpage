@@ -12,7 +12,7 @@ const Plate = () => {
             transition: {
                 staggerChildren: 0.3,
                 delayChildren: 0.2,
-                delay: 0.6
+                delay: 0.4
             }
         }
     };
@@ -25,7 +25,7 @@ const Plate = () => {
             transition: {
                 duration: 0.8,
                 ease: "easeOut",
-                delay: 0.6
+                delay: 0.4
             }
         }
     };
@@ -38,7 +38,7 @@ const Plate = () => {
             transition: {
                 duration: 0.6,
                 ease: "easeOut",
-                delay: 0.6
+                delay: 0.4
             }
         }
     };

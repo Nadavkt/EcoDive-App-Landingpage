@@ -13,7 +13,7 @@ const Download = () => {
             transition: {
                 staggerChildren: 0.2,
                 delayChildren: 0.1,
-                delay: 0.6
+                delay: 0.4
             }
         }
     };
@@ -26,7 +26,7 @@ const Download = () => {
             transition: {
                 duration: 0.8,
                 ease: "easeOut",
-                delay: 0.6
+                delay: 0.4
             }
         }
     };
@@ -39,7 +39,7 @@ const Download = () => {
             transition: {
                 duration: 0.8,
                 ease: "easeOut",
-                delay: 0.6
+                delay: 0.4
             }
         }
     };
@@ -52,7 +52,7 @@ const Download = () => {
             transition: {
                 duration: 0.6,
                 ease: "easeOut",
-                delay: 0.6
+                delay: 0.4
             }
         }
     };
