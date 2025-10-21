@@ -70,5 +70,132 @@
     animation: shake 0.5s ease-in-out;
 }
 
+/* Mobile Menu Button */
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* Hide mobile menu button on desktop */
+@media (min-width: 769px) {
+    .mobile-menu-button {
+        display: none !important;
+    }
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom left, rgb(11, 31, 57), rgb(76, 197, 255));
+    padding: 2rem;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Hide mobile menu on desktop */
+@media (min-width: 769px) {
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.mobile-menu li a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 80px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid white;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1002;
+}
+
+.mobile-menu-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-container {
+        grid-template-columns: 1fr 1fr;
+        padding: 1rem;
+    }
+
+    .navbar-options {
+        display: none;
+    }
+
+    .navbar-socials {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: block;
+        justify-self: end;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-container {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-logo a {
+        font-size: 1.2rem;
+    }
+}
+
 
 

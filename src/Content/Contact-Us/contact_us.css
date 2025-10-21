@@ -6,7 +6,20 @@
   
     background: transparent;
     padding: 56px 24px 64px;
+    margin-top: 300px;
     color: #fff;
+    position: relative;
+  }
+
+.cu-section::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
   
   /* Top cards row */
@@ -142,20 +155,95 @@
 }
 .cu-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.15); }
   
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .cu-cards {
-      grid-template-columns: repeat(2, minmax(220px, 1fr));
-    }
-    .cu-bottom {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .cu-cards {
-      grid-template-columns: 1fr;
-    }
-    .cu-heading { font-size: 32px; }
-    .cu-image-wrap { width: 220px; height: 220px; }
-}
+   /* Responsive */
+   @media (max-width: 1024px) {
+     .cu-cards {
+       grid-template-columns: repeat(2, minmax(220px, 1fr));
+     }
+     .cu-bottom {
+       grid-template-columns: 1fr;
+     }
+   }
+   
+   @media (max-width: 768px) {
+     .cu-section {
+       padding: 2rem 1rem;
+     }
+     
+     .cu-cards {
+       grid-template-columns: 1fr;
+       gap: 1rem;
+       margin-bottom: 2rem;
+     }
+     
+     .cu-card {
+       padding: 1.5rem;
+     }
+     
+     .cu-heading { 
+       font-size: 28px; 
+       margin: 10px 0 15px;
+     }
+     
+     .cu-paragraph {
+       font-size: 16px;
+       margin-bottom: 15px;
+     }
+     
+     .cu-image-wrap { 
+       width: 200px; 
+       height: 200px; 
+       margin-top: 10px;
+     }
+     
+     .cu-form {
+       gap: 1rem;
+     }
+     
+     .cu-input, .cu-textarea {
+       padding: 0.8rem;
+       font-size: 16px;
+     }
+     
+     .cu-submit {
+       height: 40px;
+       font-size: 14px;
+     }
+   }
+   
+   @media (max-width: 480px) {
+     .cu-section {
+       padding: 1.5rem 0.5rem;
+     }
+     
+     .cu-cards {
+       gap: 0.8rem;
+     }
+     
+     .cu-card {
+       padding: 1rem;
+     }
+     
+     .cu-heading { 
+       font-size: 24px; 
+     }
+     
+     .cu-paragraph {
+       font-size: 14px;
+     }
+     
+     .cu-image-wrap { 
+       width: 150px; 
+       height: 150px; 
+     }
+     
+     .cu-input, .cu-textarea {
+       padding: 0.6rem;
+       font-size: 14px;
+     }
+     
+     .cu-submit {
+       height: 36px;
+       font-size: 12px;
+     }
+   }

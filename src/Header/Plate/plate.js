@@ -3,49 +3,71 @@ import './plate.css';
 import { Link } from 'react-scroll';
 import { Parallax } from 'react-scroll-parallax';
 import { motion } from 'framer-motion';
-import { fadeIn, slideIn } from '../../animations';
 
 const Plate = () => {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3,
+                delayChildren: 0.2,
+                delay: 0.6
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: "easeOut",
+                delay: 0.6
+            }
+        }
+    };
+
+    const buttonVariants = {
+        hidden: { opacity: 0, scale: 0.5 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.6
+            }
+        }
+    };
+
     return ( 
         <Parallax speed={10}>
             <motion.div 
                 className="plateWrapper" 
                 id='home'
                 initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeIn('up')}
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                variants={containerVariants}
             >
                 <div className="backgroundImage">
                     <motion.div 
                         className="text-plate"
-                        variants={slideIn}
-                        initial="hidden"
-                        animate="show"
+                        variants={itemVariants}
                     >
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ 
-                                duration: 0.8,
-                                delay: 0.5,
-                                ease: "easeOut"
-                            }}
+                            variants={itemVariants}
                         >
                             A small step for humanity,<br/> a Big step for the Environment
                         </motion.p>
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                         className="button-plate"
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ 
-                            duration: 0.5,
-                            delay: 1,
-                            type: "spring",
-                            stiffness: 200
-                        }}
-                        whileHover={{ 
+                        variants={buttonVariants}
+                        whileHover={{
                             scale: 1.05,
                             transition: { duration: 0.2 }
                         }}
@@ -60,7 +82,7 @@ const Plate = () => {
                 </div>
             </motion.div>
         </Parallax>
-     );
+    );
 }
  
 export default Plate;

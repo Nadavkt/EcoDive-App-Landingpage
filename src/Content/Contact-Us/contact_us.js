@@ -89,8 +89,31 @@ const ContactUs = () => {
     },
   ];
 
-  const container = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, staggerChildren: 0.08 } } };
-  const item = { hidden: { opacity: 0, scale: 0.97 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.35 } } };
+  const container = { 
+    hidden: { opacity: 0, x: -100 }, 
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        duration: 0.8, 
+        ease: "easeOut",
+        delay: 0.6,
+        staggerChildren: 0.1 
+      } 
+    } 
+  };
+  const item = { 
+    hidden: { opacity: 0, x: -50 }, 
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        duration: 0.6, 
+        ease: "easeOut",
+        delay: 0.6
+      } 
+    } 
+  };
 
   return (
     <motion.section
@@ -98,7 +121,7 @@ const ContactUs = () => {
       className="cu-section"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.2 }}
       variants={container}
     >
       {/* Top cards */}
