@@ -1,6 +1,7 @@
 import  './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-scroll';
 
 const navLinks = [
@@ -33,8 +34,11 @@ const NavBar = () => {
                 <a className='facebook' href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faFacebook} size="0.5x" />
                 </a>
-                <a className='instgram' href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <a className='instagram' href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faInstagram} size="0.5x" />
+                </a>
+                <a className='login' href="https://main.d29wkyrbvrv8ds.amplifyapp.com/" target="_blank" rel="noopener noreferrer" title="Admin System">
+                    <FontAwesomeIcon icon={faSignInAlt} size="0.5x" />
                 </a>
             </div>
         </header>
