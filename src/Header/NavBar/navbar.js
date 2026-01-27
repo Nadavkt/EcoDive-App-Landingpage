@@ -60,7 +60,7 @@ const NavBar = () => {
                     <a className='instagram' href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faInstagram} size="0.5x" />
                     </a>
-                    <a className='login' href="https://main.d29wkyrbvrv8ds.amplifyapp.com/" target="_blank" rel="noopener noreferrer" title="Admin System">
+                    <a className='login' href="https://ecodive-adminsystem-client.onrender.com/" target="_blank" rel="noopener noreferrer" title="Admin System">
                         <FontAwesomeIcon icon={faSignInAlt} size="0.5x" />
                     </a>
                 </div>
